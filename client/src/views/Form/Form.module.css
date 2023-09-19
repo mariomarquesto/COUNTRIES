@@ -1,0 +1,136 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* .title{
+} */
+.inputsContainer {
+  width: 400px;
+  height: 600px;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 10px 9px 12px 5px rgb(0 0 0 / 50%);
+  border-radius: 15px;
+  animation: slide-up 1s ease;
+  height: fit-content;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+.nameContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  text-align: center;
+  font-size: 25px;
+}
+
+.diffContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  font-size: 25px;
+}
+.durationContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  font-size: 25px;
+}
+.seasonContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  font-size: 25px;
+}
+.countryContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  font-size: 25px;
+}
+.listCountries {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  font-size: 25px;
+}
+.selectedCountry {
+  font-size: 20px;
+  background-color: white;
+  align-self: center;
+  padding: 5px;
+  border-radius: 10px;
+  margin-top: 10px;
+  color: black;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.createButton {
+  height: 32px;
+  margin-top: 20px;
+  align-self: center;
+  margin: 20px;
+}
+
+.clearButton {
+  height: 32px;
+  margin-top: 20px;
+  align-self: center;
+  margin: 20px;
+}
+
+.listSelectedCountries {
+  list-style: none;
+}
+
+.homeButton {
+  height: 30px;
+  margin: 50px;
+}
+.deleteButton {
+  border-radius: 50px;
+  background-color: rgb(235, 154, 101);
+}
+
+.selects {
+  height: 30px;
+  border-radius: 5px;
+}
+.inputName {
+  height: 25px;
+  border-radius: 5px;
+  padding: 2px;
+  font-size: 20px;
+  text-align: center;
+}
+.inputName::placeholder {
+  text-align: center;
+}
+
+.spans {
+  color: rgb(255, 0, 0);
+  font-size: 18px;
+}
+
+.errors {
+  border-color: red;
+}

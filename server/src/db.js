@@ -1,18 +1,19 @@
-require("dotenv").config();
 const { Sequelize } = require("sequelize");
 
 const fs = require('fs');
 const path = require('path');
-const {
-  DB_USER, DB_PASSWORD, DB_HOST,
-} = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
-  logging: false, 
-  native: false, 
+const sequelize = new Sequelize({
+  database: "countries", // Nombre  de datos
+  username: "postgres",  //  usuario
+  password: "mario123",  //  contraseña
+  host: "localhost",     // Host de la base de datos
+  dialect: "postgres",   // Tipo de base de datos 
+  port: 5433,
+  logging: false,        
 });
-const basename = path.basename(__filename);
 
+const basename = path.basename(__filename);
 const modelDefiners = [];
 
 fs.readdirSync(path.join(__dirname, '/models'))
@@ -21,19 +22,25 @@ fs.readdirSync(path.join(__dirname, '/models'))
     modelDefiners.push(require(path.join(__dirname, '/models', file)));
   });
 
-
 modelDefiners.forEach(model => model(sequelize));
 
 let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Country } = sequelize.models;
+const { Activity, Country } = sequelize.models;
 
-// Aca vendrian las relaciones
-// Product.hasMany(Reviews);
+// Definir relaciones aquí
+Country.belongsToMany(Activity, {
+  through: 'ActivityCountry',
+  timestamps: false,
+});
+Activity.belongsToMany(Country, {
+  through: 'ActivityCountry',
+  timestamps: false,
+});
 
 module.exports = {
-  ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
-  conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
+  ...sequelize.models,
+  conn: sequelize,
 };

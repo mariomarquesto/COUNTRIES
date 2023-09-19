@@ -1,0 +1,86 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 10px;
+  min-height: calc(100vh - 40px);
+  position: relative;
+  padding-bottom: 50px; 
+}
+
+.pagination {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pagination button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border: none;
+  background-color:rgba(255, 255, 255, 0.20);
+  color: rgb(245, 10, 10);
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #f70e0e;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+}
+
+.pagination span {
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.20);
+  color: rgb(239, 7, 7);
+  font-size: 14px;
+}
+.filtersContainer{
+    display: flex;
+    justify-content: center;
+    grid-gap: 30px;
+    gap: 30px;
+    margin: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+
+.filters {
+    display: flex;
+    grid-gap: 7px;
+    gap: 7px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+ 
+}
+
+.selects {
+    font-size: 18px;
+     border-radius: 25px;
+     background-color: rgba(255, 255, 255, 0.20);
+     color: rgb(244, 9, 9)
+}
+.selects option {
+background-color: rgba(255, 255, 255, 0.20);
+  color:black
+}
+
