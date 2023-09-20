@@ -1,7 +1,9 @@
 const { Op } = require("sequelize");
 const { Country, Activity } = require("../db");
+const getApiData = require("../controllers/getApiData");
 
 const getCountries = async (req, res) => {
+  await getApiData(Country);
   const { name } = req.query;
   try {
     if (!name) {

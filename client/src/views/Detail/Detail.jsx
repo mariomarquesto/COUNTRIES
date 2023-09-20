@@ -11,6 +11,8 @@ const Detail = () => {
 
   const country = useSelector((state) => state.detailCountry);
 
+  console.log("country", country)
+
   useEffect(() => {
     dispatch(getCountry(id));
     return () => {
@@ -25,7 +27,7 @@ const Detail = () => {
           <div className={styles.information}>
             <img
               className={styles.flagImg}
-              src={country.flags.svg}
+              src={country.Imagendelabandera}
               alt="flag"
             />
             <h3>id: {country?.id}</h3>
@@ -36,7 +38,7 @@ const Detail = () => {
             {country.Área && <h3>Área: {country.Área} Km²</h3>}
             <h3>Población: {country?.Población}</h3>
           </div>
-  
+
           <div className={styles.actContainer}>
             <h2>Activities</h2>
             <div className={styles.cardsContainer}>
@@ -62,16 +64,16 @@ const Detail = () => {
         </div>
       ) : (
         <div className={styles.loadingContainer}>
-          <img className={styles.loading} src={earth} alt="loading-img" />
+          <img className={styles.loading} src={""} alt="loading-img" />
         </div>
       )}
-  
+
       <NavLink to="/home">
         <button className={styles.homeBtn}>Back to Home</button>
       </NavLink>
     </div>
   );
-  
+
 };
 
 export default Detail;

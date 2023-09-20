@@ -58,15 +58,17 @@ const Form = () => {
     setErrors(validate({ ...form, [e.target.name]: e.target.value }));
   };
 
-  const selectCountry = (e) => {
-    if (!form.countries.includes(e.target.value)) {
+  const selectCountry = (value) => {
+    if (!value) {
+      return
+    }
+    if (!form.countries.includes(value)) {
       setForm({
         ...form,
-        countries: [...form.countries, e.target.value],
+        countries: [...form.countries, value],
       });
     }
-    setErrors(validate({ ...form, countries: e.target.value }));
-    e.target.value = '';
+    setErrors(validate({ ...form, countries: value }));
   };
 
   const handleDelete = (name) => {
@@ -173,25 +175,25 @@ const Form = () => {
         </div>
 
         <div className={styles.countryContainer}>
-  <div className={styles.listCountries}>
-    <label>Country</label>
-    <select
-      className={styles.selects}
-      onChange={(e) => selectCountry(e.target.value)} // Llama a la función selectCountry con el valor seleccionado
-      value="" // Establece el valor seleccionado en blanco para que se restablezca después de seleccionar un país
-    >
-      <option value="" disabled>
-        Select countries
-      </option>
-      {allCountries.map((country) => (
-        <option key={country.id} value={country.Nombre}>
-          {country.Nombre}
-        </option>
-      ))}
-    </select>
-    <span className={styles.spans}>{errors.countries}</span>
-  
-</div>
+          <div className={styles.listCountries}>
+            <label>Country</label>
+            <select
+              className={styles.selects}
+              onChange={(e) => selectCountry(e.target.value)} // Llama a la función selectCountry con el valor seleccionado
+              value="" // Establece el valor seleccionado en blanco para que se restablezca después de seleccionar un país
+            >
+              <option value="" disabled>
+                Select countries
+              </option>
+              {allCountries.map((country) => (
+                <option key={country.id} value={country.Nombre}>
+                  {country.Nombre}
+                </option>
+              ))}
+            </select>
+            <span className={styles.spans}>{errors.countries}</span>
+
+          </div>
 
           <div className={styles.selectedCountry}>
             {form.countries.map((c, i) => (
