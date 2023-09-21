@@ -8,9 +8,11 @@ import Detail from './views/Detail/Detail';
 import Error404 from './components/Error404';
 import Card from './components/Card/Card';
 
+
 function App() {
   return (
     <div className="App">
+
       <NavBar />
       <Routes>
         <Route path="/" element={<Landing />} />
