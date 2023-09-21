@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url("../src/imagen/segundaImagen.jpg");
+  background: url("../src/imagen/ImagenMundo.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
