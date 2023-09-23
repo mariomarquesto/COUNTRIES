@@ -4,30 +4,119 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  margin: 200px auto;
- border-radius: 25px;
-  height: 300px;
-  box-shadow: 10px 9px 12px 5px rgb(0 0 0 / 50%);
-
-  min-width: 200px;
-  max-width: 100vh;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 10px 9px 12px 5px #737e0efa;
+  max-width: 80%;
+  text-align: center;
 }
-
-
-
 .title {
-  margin: 20px;
-  font-size: 8vmin;
+  font-size: 4vmin;
   font-family: Poppins, sans-serif;
+  margin: 20px 0 10px; /* Margen inferior añadido para separar del botón */
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #f905e5;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
 
+.title::before,
+.title::after {
+  content: '';
+  position: absolute;
+  width: calc(100% - 20px); /* Ajustar el ancho y el margen izquierdo y derecho */
+  height: 100%;
+  border: 2px solid #f905e5;
+  top: 0;
+  left: 10px; /* Ajustar el margen izquierdo */
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
 }
-.button {
-  font-size: 25px;
-  border-radius: 15px;
-  height: 50px;
+
+.title::before {
+  border-top: none;
+  border-bottom: none;
+  transform-origin: left;
 }
-button:hover {
-  background-color: rgb(46, 46, 46);
+
+.title::after {
+  border-left: none;
+  border-right: none;
+  transform-origin: right;
+}
+
+.title:hover {
   color: white;
+}
+
+.title:hover::before,
+.title:hover::after {
+  transform: scaleX(1);
+}
+
+/* Animación para el título */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-7px);
+  }
+}
+
+.title:hover {
+  animation: bounce 0.5s ease infinite;
+}
+
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-7px);
+  }
+}
+
+.title:hover {
+  animation: bounce 0.5s ease infinite;
+}
+
+
+.button {
+  font-size: 20px;
+  border-radius: 15px;
+  padding: 10px 20px;
+  background-color: #f905e5;
+  color: white;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgb(248, 228, 7);
+}
+
+@media (max-width: 768px) {
+  .landing {
+    margin: 10px auto;
+    padding: 10px;
+    max-width: 95%;
+  }
+
+  .title {
+    font-size: 5vmin;
+  }
+
+  .button {
+    font-size: 16px;
+  }
 }

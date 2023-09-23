@@ -10,6 +10,7 @@ const NavBar = () => {
       <NavLink className={styles.links} to="/form">
         ACTIVITY
       </NavLink>
+     
     </div>
   );
 };

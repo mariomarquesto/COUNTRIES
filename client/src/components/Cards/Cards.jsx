@@ -3,6 +3,7 @@ import Card from '../Card/Card';
 import style from './Cards.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { SearchBar } from '../SearchBar/SearchBar';
+import { NavLink } from 'react-router-dom';
 import {
   continentFilter,
   activityFilter,
@@ -195,6 +196,9 @@ const Cards = () => {
           </button>
         </div>
       </div>
+      <NavLink className={style.links} to="/">
+        Salir
+      </NavLink>
     </>
   );
 };

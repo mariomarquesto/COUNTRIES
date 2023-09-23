@@ -4,25 +4,28 @@ import { NavLink, useParams } from 'react-router-dom';
 import { clearDetail, getCountry } from '../../redux/actions';
 import styles from './Detail.module.css';
 
-
 const Detail = () => {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { id } = useParams(); // Obtiene el parámetro 'id' de la URL
 
-  const country = useSelector((state) => state.detailCountry);
+  const country = useSelector((state) => state.detailCountry); // Obtiene el estado del país desde Redux
 
-  console.log("country", country)
+  console.log("country", country);
 
   useEffect(() => {
+    // Cuando el componente se monta, solicita los detalles del país con el 'id' proporcionado
     dispatch(getCountry(id));
+
+    // Define una función de limpieza que se ejecutará cuando el componente se desmonte
     return () => {
-      dispatch(clearDetail());
+      dispatch(clearDetail()); // Limpia los detalles del país en el estado Redux
     };
   }, [dispatch, id]);
 
   return (
     <div className={styles.container}>
       {country.Nombre ? (
+        // Si existe un nombre de país en el estado Redux, muestra los detalles
         <div className={styles.detailContainer}>
           <div className={styles.information}>
             <img
@@ -43,6 +46,7 @@ const Detail = () => {
             <h2>Activities</h2>
             <div className={styles.cardsContainer}>
               {country.Activities?.length ? (
+                // Si hay actividades en el país, muestra cada una
                 country.Activities.map((activity) => (
                   <div className={styles.activities} key={activity.id}>
                     <h3>{activity.Nombre.toUpperCase()}</h3>
@@ -52,6 +56,7 @@ const Detail = () => {
                   </div>
                 ))
               ) : (
+                // Si no hay actividades, muestra un mensaje y un botón para crear una
                 <div>
                   <h2>No activities yet</h2>
                   <NavLink to="/form">
@@ -63,17 +68,18 @@ const Detail = () => {
           </div>
         </div>
       ) : (
+        // Si no hay un nombre de país en el estado Redux, muestra un indicador de carga
         <div className={styles.loadingContainer}>
           <img className={styles.loading} src={""} alt="loading-img" />
         </div>
       )}
 
+      {/* Botón para volver a la página de inicio */}
       <NavLink to="/home">
         <button className={styles.homeBtn}>Back to Home</button>
       </NavLink>
     </div>
   );
-
 };
 
 export default Detail;

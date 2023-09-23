@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route,  useLocation } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Home from './views/Home/Home';
 import Landing from './views/Landing/Landing';
@@ -10,11 +10,14 @@ import Card from './components/Card/Card';
 
 
 function App() {
+  const { pathname } = useLocation()
   return (
     <div className="App">
 
-      <NavBar />
+{ pathname !== '/' && <NavBar/> }
       <Routes>
+     
+
         <Route path="/" element={<Landing />} />
         <Route path="/form" element={<Form />} />
         <Route path="/countries/:id" element={<Detail />} />

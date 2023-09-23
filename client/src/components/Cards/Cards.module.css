@@ -83,4 +83,22 @@
 background-color: rgba(255, 255, 255, 0.20);
   color:black
 }
+.links {
+  display: inline-block; /* Cambiado a inline-block para ajustar el ancho al contenido */
+  text-decoration: none;
+  color: #f9f105;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 5px;
+  border-radius: 8px;
+  height: 30px;
+  font-size: 20px;
+  margin: 10px 20px;
+  width: 130px; /* Cambiado a auto para que se ajuste al contenido */
+  transition: transform 0.3s ease-in-out;
+}
 
+.links:hover {
+  color: rgb(246, 11, 238);
+  background-color: #f9f105;
+  transform: scale(1.2);
+}
