@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './Card.module.css';
 
 const Card = (props) => {
-  const { id, nombre, Imagendelabandera, continente, poblacion } = props;
+  const { id, nombre, Imagendelabandera, continente } = props;
   return (
 
     <NavLink className={styles.navlink} to={`/countries/${id}`}>
@@ -14,6 +14,7 @@ const Card = (props) => {
         />
         <h2 className={styles.cardName}>{nombre}</h2>
         <h3 className={styles.cardContinent}>{continente}</h3>
+        
       </div>
     </NavLink>
 
